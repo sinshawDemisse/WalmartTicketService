@@ -56,6 +56,7 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public SeatHold findAndHoldSeats(int numSeats, int minLevel, int maxLevel, String customerEmail) {
 		SeatHold seatHold = new SeatHold();
+		try {			
 		if (numSeats > numSeatsAvailable(0))
 		{
 			seatHold.setStatus(TicketServiceMessage.HOLD_ERROR);
@@ -101,6 +102,11 @@ public class TicketServiceImpl implements TicketService {
 			seatHold.setTimeStamp(System.currentTimeMillis());
 			seatHold.setHoldId(ticketRepository.getSeatHolds().size() + 1);
 			ticketRepository.getSeatHolds().put(seatHold.getHoldId(), seatHold);
+			return seatHold;
+		}
+		} catch (Exception e) {
+			logger.info("unable to make hold");
+			seatHold.setStatus(TicketServiceMessage.HOLD_ERROR);
 			return seatHold;
 		}
 	}
