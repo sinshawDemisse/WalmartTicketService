@@ -42,5 +42,10 @@ public class TicketServiceController {
 		return ticketServiceImpl.findAndHoldSeats(numSeats, min, max, email);
 
 	}
+	
+	@RequestMapping(value = "reserveSeats/{seatHoldId}/{customerEmail}")
+	public String reserveSeats(@PathVariable Integer seatHoldId, @PathVariable String customerEmail){
+		return ticketServiceImpl.reserveSeats(seatHoldId, customerEmail);
+	}
 
 }

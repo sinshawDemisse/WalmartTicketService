@@ -7,5 +7,6 @@ public class TicketServiceConstants {
 	public static final String ACTIVE_STATUS="ACTIVE";
 	public static final String EXPIRED_STATUS="EXPIRED";
 	public static final String RESERVED="RESERVED";
+	public static final String HOLD="HOLD";
 
 }

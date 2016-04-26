@@ -10,4 +10,5 @@ public class TicketServiceMessage {
 	public static final String UNKNOWN_ID="Unkown ID";
 	public static final String RESERVE_ERROR="Unable to reserve";
 	public static final String HOLD_ERROR="Unable to make hold";
+	public static final String RESERVED_BEFOR="This hold reserved befor"; 
 }
