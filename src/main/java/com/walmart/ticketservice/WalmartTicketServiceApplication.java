@@ -8,5 +8,6 @@ public class WalmartTicketServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WalmartTicketServiceApplication.class, args);
+
 	}
 }

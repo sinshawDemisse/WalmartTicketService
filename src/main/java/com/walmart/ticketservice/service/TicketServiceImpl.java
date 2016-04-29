@@ -17,7 +17,7 @@ import com.walmart.ticketservice.utile.TicketServiceMessage;
  * @author sinshaw.demisse
  *
  */
-@Service
+@Service("TicketService")
 public class TicketServiceImpl implements TicketService {
 
 	private static Logger logger = Logger.getLogger(TicketServiceImpl.class);
@@ -55,11 +55,18 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public SeatHold findAndHoldSeats(int numSeats, int minLevel, int maxLevel, String customerEmail) {
 		SeatHold seatHold = new SeatHold();
+		int availableSeats=0;
 		try {
-			if (numSeats > numSeatsAvailable(0)) {
+			for(int i=minLevel;i<=maxLevel;i++)
+			{
+				availableSeats+=numSeatsAvailable(i);
+			}
+			if (numSeats > availableSeats) {
 				seatHold.setStatus(TicketServiceMessage.HOLD_ERROR);
 				return seatHold;
-			} else {
+			} 
+			
+				else {
 
 				int numSeatsToHold = numSeats;
 				int min = minLevel;

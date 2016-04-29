@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.walmart.ticketservice.model.SeatHold;
 import com.walmart.ticketservice.service.TicketServiceImpl;
 
-@RestController
+@RestController()
 @RequestMapping("rest")
 public class TicketServiceController {
 
@@ -32,7 +32,7 @@ public class TicketServiceController {
 	}
 
 	@RequestMapping(value = "findandholdseat/{numSeats}/{email}")
-	public SeatHold findAndHoldSeats(@PathVariable Integer numSeats, @PathVariable String email,
+	public @ResponseBody SeatHold findAndHoldSeats(@PathVariable Integer numSeats, @PathVariable String email,
 			@RequestParam(value = "minLevel", required = false) Integer min,
 			@RequestParam(value = "maxLevel", required = false) Integer max) {
 		if (min == null)

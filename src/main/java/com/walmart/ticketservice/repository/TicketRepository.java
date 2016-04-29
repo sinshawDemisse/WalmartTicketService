@@ -2,12 +2,12 @@ package com.walmart.ticketservice.repository;
 
 import java.util.HashMap;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import com.walmart.ticketservice.model.SeatHold;
 import com.walmart.ticketservice.model.Venue;
 
-@Repository
+@Component
 public class TicketRepository {
 	private HashMap<Integer,SeatHold> seatHolds;
 	private HashMap<Integer,Venue> venues;
